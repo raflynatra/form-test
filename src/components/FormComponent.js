@@ -35,16 +35,18 @@ function FormComponent({ setUserList }) {
         className="rounded p-4"
         style={{
           width: "500px",
-          minHeight: "700px",
+          minHeight: "550px",
           backgroundColor: "lavender",
           margin: "0px auto",
         }}
       >
         <h1 className="text-center">Register Here</h1>
         <form className="px-5 mt-4" onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label className="form-label">Username</label>
+          <div class="form-floating mb-3">
             <input
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
               type="text"
               className="form-control"
               name="username"
@@ -52,10 +54,13 @@ function FormComponent({ setUserList }) {
               value={user.username || ""}
               required
             />
+            <label for="floatingInput">Username</label>
           </div>
-          <div className="mb-3">
-            <label className="form-label">Password</label>
+          <div class="form-floating mb-3">
             <input
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
               type="password"
               className="form-control"
               name="password"
@@ -63,10 +68,13 @@ function FormComponent({ setUserList }) {
               value={user.password || ""}
               required
             />
+            <label for="floatingInput">Password</label>
           </div>
-          <div className="mb-3">
-            <label className="form-label">Email address</label>
+          <div class="form-floating mb-3">
             <input
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
               type="email"
               className="form-control"
               name="email"
@@ -74,10 +82,13 @@ function FormComponent({ setUserList }) {
               value={user.email || ""}
               required
             />
+            <label for="floatingInput">Email address</label>
           </div>
-          <div className="mb-3">
-            <label className="form-label">Phone</label>
+          <div class="form-floating mb-3">
             <input
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
               type="number"
               className="form-control"
               name="phone"
@@ -85,10 +96,13 @@ function FormComponent({ setUserList }) {
               value={user.phone || ""}
               required
             />
+            <label for="floatingInput">Phone Number</label>
           </div>
-          <div className="mb-3">
-            <label className="form-label">Address</label>
+          <div class="form-floating mb-3">
             <textarea
+              class="form-control"
+              placeholder="Leave a comment here"
+              id="floatingTextarea"
               className="form-control"
               name="address"
               rows="3"
@@ -96,6 +110,7 @@ function FormComponent({ setUserList }) {
               value={user.address || ""}
               required
             ></textarea>
+            <label for="floatingTextarea">Address</label>
           </div>
           <button type="submit" className="btn btn-primary">
             Submit
