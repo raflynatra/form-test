@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DetailUserComponent from "./DetailUserComponent";
+import { useSelector } from "react-redux";
 
-function TableComponent({ userList }) {
+function TableComponent() {
+  const userList = useSelector((state) => state.users.users);
+  console.log(userList);
+
   const [show, setShow] = useState(false);
   const [user, setUser] = useState({});
   const navigate = useNavigate();

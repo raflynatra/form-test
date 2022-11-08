@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-function FormComponent({ setUserList }) {
+function FormComponent() {
+  const dispatch = useDispatch();
   const [user, setUser] = useState({});
   const navigate = useNavigate();
 
@@ -26,7 +28,7 @@ function FormComponent({ setUserList }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setUserList((prev) => [...prev, user]);
+    dispatch({ type: "addUser", payload: user });
     navigate("/table");
   };
   return (
@@ -42,75 +44,65 @@ function FormComponent({ setUserList }) {
       >
         <h1 className="text-center">Register Here</h1>
         <form className="px-5 mt-4" onSubmit={handleSubmit}>
-          <div class="form-floating mb-3">
+          <div className="form-floating mb-3">
             <input
-              class="form-control"
-              id="floatingInput"
+              className="form-control"
               placeholder="name@example.com"
               type="text"
-              className="form-control"
               name="username"
               onChange={handleChange}
               value={user.username || ""}
               required
             />
-            <label for="floatingInput">Username</label>
+            <label htmlFor="floatingInput">Username</label>
           </div>
-          <div class="form-floating mb-3">
+          <div className="form-floating mb-3">
             <input
-              class="form-control"
-              id="floatingInput"
+              className="form-control"
               placeholder="name@example.com"
               type="password"
-              className="form-control"
               name="password"
               onChange={handleChange}
               value={user.password || ""}
               required
             />
-            <label for="floatingInput">Password</label>
+            <label htmlFor="floatingInput">Password</label>
           </div>
-          <div class="form-floating mb-3">
+          <div className="form-floating mb-3">
             <input
-              class="form-control"
-              id="floatingInput"
+              className="form-control"
               placeholder="name@example.com"
               type="email"
-              className="form-control"
               name="email"
               onChange={handleChange}
               value={user.email || ""}
               required
             />
-            <label for="floatingInput">Email address</label>
+            <label htmlFor="floatingInput">Email address</label>
           </div>
-          <div class="form-floating mb-3">
+          <div className="form-floating mb-3">
             <input
-              class="form-control"
-              id="floatingInput"
+              className="form-control"
               placeholder="name@example.com"
               type="number"
-              className="form-control"
               name="phone"
               onChange={handleChange}
               value={user.phone || ""}
               required
             />
-            <label for="floatingInput">Phone Number</label>
+            <label htmlFor="floatingInput">Phone Number</label>
           </div>
-          <div class="form-floating mb-3">
+          <div className="form-floating mb-3">
             <textarea
-              class="form-control"
-              placeholder="Leave a comment here"
-              id="floatingTextarea"
               className="form-control"
+              placeholder="Leave a comment here"
               name="address"
               rows="3"
               onChange={handleChange}
               value={user.address || ""}
               required
             ></textarea>
-            <label for="floatingTextarea">Address</label>
+            <label htmlFor="floatingTextarea">Address</label>
           </div>
           <button type="submit" className="btn btn-primary">
             Submit
